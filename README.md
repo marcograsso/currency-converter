@@ -1,5 +1,11 @@
 # Convertitore di valuta
-Currency converter application 
+Currency converter application. It allows double input dynamic currency conversion. 
+
+- Features: Currency converter; Conversion table; Conversion rate history chart. 
+
+- API: [Banca D'Italia]([https://www.google.com/](https://tassidicambio.bancaditalia.it/terzevalute-wf-ui-web/)).
+
+- Lang: IT
 
 ## Installation
 
@@ -9,13 +15,16 @@ Currency converter application
    git clone https://github.com/marcograsso/currency-converter.git
 
 2. Navigate to the project's directory:
-    
+
+    ```bash
     cd currency-converter
 
 3. Install dependencies:
     
+    ```bash
     npm install
 
-4. Clone the repository:
+4. Start the application:
 
+    ```bash
     npm start
