@@ -3,7 +3,7 @@ Currency converter application. It allows double input dynamic currency conversi
 
 - Features: Currency converter; Conversion table; Conversion rate history chart. 
 
-- API: [Banca D'Italia]([https://www.google.com/](https://tassidicambio.bancaditalia.it/terzevalute-wf-ui-web/)).
+- API: [Banca D'Italia](https://tassidicambio.bancaditalia.it/terzevalute-wf-ui-web/).
 
 - Lang: IT
 
