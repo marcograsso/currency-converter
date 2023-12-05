@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <title>Convertitore di valuta</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" integrity="..." crossorigin="anonymous">
+
+  <!-- Google Fonts - Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Flags -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.0.0/css/flag-icons.min.css"
+/>
+</head>
+
+<body>
+
+  <!-- Top Bar with Title and Dark Mode Switch -->
+  <div class="container-fluid top-bar">
+    <div>
+      <h1 class="mainTitle">Convertitore di valuta</h1>
+      <p class="mainSubtitle">Powered by <a href="https://tassidicambio.bancaditalia.it/terzevalute-wf-ui-web/" target="_blank">Banca D'Italia</a></p>
+    </div>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="darkModeToggle">
+      <label class="form-check-label" for="darkModeToggle">Modalità scura</label>
+    </div>
+  </div>
+
+  <!-- Form and Result Section -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <!-- Form Section -->
+      <div class="col-md-5 mx-2 mb-4" id="formSection">
+        <div class="container custom-form">
+          <form class="row g-3">
+            <!-- Left Column -->
+            <div class="col-md-6">
+              <!-- Numeric Input Field 1 -->
+              <div class="mb-3">
+                <label for="numericInput1" class="form-label">Importo A</label>
+                <input type="number" class="form-control" id="numericInput1" placeholder="Digita un numero" step="0.01" required>
+              </div>
+
+              <!-- Dropdown Select for Input 1 -->
+              <div class="mb-3">
+                <label for="rateSelect1" class="form-label">Seleziona valuta:</label>
+                <select class="form-select" id="rateSelect1" required>
+                  <!-- Rates will be dynamically populated here -->
+                </select>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="col-md-6">
+              <!-- Numeric Input Field 2 -->
+              <div class="mb-3">
+                <label for="numericInput2" class="form-label">Importo B</label>
+                <input type="number" class="form-control" id="numericInput2" step="0.01" required>
+              </div>
+
+              <!-- Dropdown Select for Input 2 -->
+              <div class="mb-3">
+                <label for="rateSelect2" class="form-label">Seleziona valuta:</label>
+                <select class="form-select" id="rateSelect2" required>
+                  <!-- Results will appear here -->
+                </select>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Result Section -->
+      <div class="col-md-5 mx-2 mb-4" id="resultSection">
+        <div class="container result-section">
+          <h4>Risultato della conversione <span class="fi fi-xx" id="flag-icon-2"></span><span class="fi fi-xx" id="flag-icon-1"></span>
+          </h4>
+          <p id="startResultText"></p>
+          <h3 id="endResultText"></h3>
+          <p id="resultText">Il risultato della conversione verrà mostrato qui.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Responsive Table and Line Chart -->
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Line Chart -->
+      <div class="col-md-5 mx-2 mb-4" id="lineChartBox">
+        <h4>Storico mensile</h4>
+        <div class="line-chart-container overflow-auto" style="height: 300px;">
+          <canvas id="lineChart"></canvas>
+        </div>
+      </div>
+      
+      <!-- Responsive Table -->
+      <div class="col-md-5 mx-2 mb-4 " id="conversionTable">
+        <h4>Tabella di conversione</h4>
+        <div class="table-responsive overflow-auto" style="height: 300px;" id="bootTable">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th id="tableHead1" scope="col">Valuta 1</th>
+                <th id="tableHead2" scope="col">Valuta 2</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- Dynamically populated rows will go here -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="..." crossorigin="anonymous"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+
+</html>
